@@ -1,0 +1,26 @@
+PROCEDURE Insertion_Sort(tab:ARRAY_OF INTEGER)
+VAR
+    i,index,value:INTEGER;
+BEGIN
+    FOR i FROM 1 TO length(tab)-1 STEP 1  DO
+        value:=tab[i];
+        index:=i;
+        WHILE (index>0 && tab[index-1]>value) DO
+            tab[index]:=tab[index-1];
+            index:=index-1;
+        END_WHILE
+        tab[index]:=value;
+    END_FOR
+END
+ALGORITHM Insertion Sort
+VAR
+    tab : ARRAY_OF INTEGER[10];
+    i:INTEGER;
+BEGIN
+    Read(tab)
+    Insertion_Sort(tab);
+    Write(" elements of the table after sorting")
+    FOR i FROM 0 TO length(tab)-1 STEP 1  DO
+        Write(tab[i])
+    END_FOR
+END
